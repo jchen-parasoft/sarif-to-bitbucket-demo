@@ -115,8 +115,13 @@ const getScanType = (sarif) => {
 }
 
 const sarifToBitBucket = async () => {
-    const sarifResult = fs.readFileSync(REPORT, 'utf8');
+    const sarifReportContent = fs.readFileSync(REPORT, 'utf8');
+    const sarifResult = JSON.parse(sarifReportContent);
     const scanType = getScanType(sarifResult);
+
+    if (scanType['id'] === "c/c++test") {
+        scanType['id'] = "c++test";
+    }
 
     let vulns = scanType.mapper(sarifResult)
     let details = `This repository contains ${scanType['count']} ${scanType['name']} vulnerabilities`
