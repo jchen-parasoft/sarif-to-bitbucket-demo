@@ -3,6 +3,7 @@
 import axios from 'axios'
 import minimist from 'minimist'
 import { v4 as uuidv4 } from 'uuid'
+import fs from 'fs'
 
 const BB_API_URL = 'https://api.bitbucket.org/2.0/repositories'
 
@@ -114,8 +115,7 @@ const getScanType = (sarif) => {
 }
 
 const sarifToBitBucket = async () => {
-
-    const sarifResult = getSarifReportResult(REPORT);
+    const sarifResult = fs.readFileSync(REPORT, 'utf8');
     const scanType = getScanType(sarifResult);
 
     let vulns = scanType.mapper(sarifResult)
@@ -181,22 +181,6 @@ const getInput = () => {
         });
 
         stdin.on('error', reject);
-    });
-}
-
-const getSarifReportResult = (file) => {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            try {
-                const jsonContent = JSON.parse(e.target.result);
-                resolve(jsonContent);
-            } catch (parseError) {
-                reject('解析JSON失败: ' + parseError.message);
-            }
-        };
-        reader.onerror = () => reject('文件读取错误');
-        reader.readAsText(file);
     });
 }
 
