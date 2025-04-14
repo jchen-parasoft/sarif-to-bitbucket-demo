@@ -1,9 +1,9 @@
 {
-  "name": "sarif-to-bb-test",
+  "name": "sarif-to-bb",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "sarif-to-bb-test": "index.js"
+    "sarif-to-bb": "index.js"
   },
   "scripts": {
     "main": "node index.js"
@@ -11,7 +11,6 @@
   "dependencies": {
     "axios": "1.8.4",
     "minimist": "^1.2.6",
-    "uuid": "^8.3.2",
-    "fs": "0.0.1-security"
+    "uuid": "^8.3.2"
   }
 }
