@@ -1,0 +1,3672 @@
+{
+  "$schema" : "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [
+    {
+      "tool" : {
+        "driver" : {
+          "name" : "dotTEST",
+          "semanticVersion" : "2024.1.0",
+          "rules" : [
+            {
+              "id" : "CDD.DUPM",
+              "name" : "Avoid method duplication",
+              "shortDescription" : {
+                "text" : "Avoid method duplication"
+              },
+              "fullDescription" : {
+                "text" : "Avoid method duplication [CDD.DUPM]"
+              },
+              "defaultConfiguration" : {
+                "level" : "error"
+              },
+              "help" : {
+                "text" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPM.html",
+                "markdown" : "[Avoid method duplication \\[CDD.DUPM\\]](https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPM.html)"
+              },
+              "helpUri" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPM.html",
+              "properties" : {
+                "tags" : [
+                  "Code Duplication Detection"
+                ]
+              }
+            },
+            {
+              "id" : "CDD.DUPC",
+              "name" : "Avoid code duplication",
+              "shortDescription" : {
+                "text" : "Avoid code duplication"
+              },
+              "fullDescription" : {
+                "text" : "Avoid code duplication [CDD.DUPC]"
+              },
+              "defaultConfiguration" : {
+                "level" : "warning"
+              },
+              "help" : {
+                "text" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPC.html",
+                "markdown" : "[Avoid code duplication \\[CDD.DUPC\\]](https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPC.html)"
+              },
+              "helpUri" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPC.html",
+              "properties" : {
+                "tags" : [
+                  "Code Duplication Detection"
+                ]
+              }
+            },
+            {
+              "id" : "CDD.DUPS",
+              "name" : "Avoid string literal duplication",
+              "shortDescription" : {
+                "text" : "Avoid string literal duplication"
+              },
+              "fullDescription" : {
+                "text" : "Avoid string literal duplication [CDD.DUPS]"
+              },
+              "defaultConfiguration" : {
+                "level" : "warning"
+              },
+              "help" : {
+                "text" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPS.html",
+                "markdown" : "[Avoid string literal duplication \\[CDD.DUPS\\]](https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPS.html)"
+              },
+              "helpUri" : "https:\/\/dtp.parasoftcn.com\/grs\/dtp\/rulesdoc\/com.parasoft.xtest.dupcode.parser\/10.7.0\/zh_CN\/CDD.DUPS.html",
+              "properties" : {
+                "tags" : [
+                  "Code Duplication Detection"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results" : [
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: int digit;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1880120833"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                },
+                "region" : {
+                  "startLine" : 21,
+                  "startColumn" : 17,
+                  "endColumn" : 27
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 21,
+                            "startColumn" : 17,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 77,
+                            "startColumn" : 17,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"Wrong account number: \""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1641499107"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                },
+                "region" : {
+                  "startLine" : 28,
+                  "startColumn" : 47,
+                  "endColumn" : 71
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 28,
+                            "startColumn" : 47,
+                            "endColumn" : 71
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 84,
+                            "startColumn" : 47,
+                            "endColumn" : 71
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: { return false; }"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1178724475"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                },
+                "region" : {
+                  "startLine" : 58,
+                  "startColumn" : 13,
+                  "endLine" : 60,
+                  "endColumn" : 14
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 58,
+                            "startColumn" : 13,
+                            "endLine" : 60,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 64,
+                            "startColumn" : 17,
+                            "endLine" : 66,
+                            "endColumn" : 18
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankUser.cs"
+                          },
+                          "region" : {
+                            "startLine" : 29,
+                            "startColumn" : 13,
+                            "endLine" : 31,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: return true;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-817364611"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                },
+                "region" : {
+                  "startLine" : 68,
+                  "startColumn" : 13,
+                  "endColumn" : 25
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/AccountNumber.cs"
+                          },
+                          "region" : {
+                            "startLine" : 68,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankUser.cs"
+                          },
+                          "region" : {
+                            "startLine" : 32,
+                            "startColumn" : 13,
+                            "endColumn" : 26
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 20,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/IncommingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 18,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method 'AddAccount' : '{ IList<BankAccount> accounts; if (!_accounts.TryGetValue...'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1508372603"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 38,
+                  "startColumn" : 9,
+                  "endLine" : 47,
+                  "endColumn" : 10
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 38,
+                            "startColumn" : 9,
+                            "endLine" : 47,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 50,
+                            "startColumn" : 9,
+                            "endLine" : 59,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: IList<BankAccount> accounts; if (!_accounts.TryGetValue(a..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1290719671"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 39,
+                  "startColumn" : 13,
+                  "endLine" : 46,
+                  "endColumn" : 63
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 39,
+                            "startColumn" : 13,
+                            "endLine" : 46,
+                            "endColumn" : 63
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 51,
+                            "startColumn" : 13,
+                            "endLine" : 58,
+                            "endColumn" : 63
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: IList<BankAccount> accounts = GetAccounts(user);"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "932210696"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 75,
+                  "startColumn" : 13,
+                  "endColumn" : 61
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 75,
+                            "startColumn" : 13,
+                            "endColumn" : 61
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 142,
+                            "startColumn" : 13,
+                            "endColumn" : 61
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: int count = 0;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1574173168"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 76,
+                  "startColumn" : 13,
+                  "endColumn" : 27
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 76,
+                            "startColumn" : 13,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 94,
+                            "startColumn" : 13,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"USD\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1210635292"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 79,
+                  "startColumn" : 54,
+                  "endColumn" : 59
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 79,
+                            "startColumn" : 54,
+                            "endColumn" : 59
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 118,
+                            "startColumn" : 85,
+                            "endColumn" : 90
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 130,
+                            "startColumn" : 83,
+                            "endColumn" : 88
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 140,
+                            "startColumn" : 56,
+                            "endColumn" : 61
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 19,
+                            "startColumn" : 47,
+                            "endColumn" : 52
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 33,
+                            "startColumn" : 108,
+                            "endColumn" : 113
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 41,
+                            "startColumn" : 76,
+                            "endColumn" : 81
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 25,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 42,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: { count++; }"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "81780859"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 80,
+                  "startColumn" : 17,
+                  "endLine" : 82,
+                  "endColumn" : 18
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 80,
+                            "startColumn" : 17,
+                            "endLine" : 82,
+                            "endColumn" : 18
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 102,
+                            "startColumn" : 21,
+                            "endLine" : 104,
+                            "endColumn" : 22
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: { }"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "81780859"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 84,
+                  "startColumn" : 17,
+                  "endLine" : 86,
+                  "endColumn" : 18
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 84,
+                            "startColumn" : 17,
+                            "endLine" : 86,
+                            "endColumn" : 18
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 12,
+                            "startColumn" : 13,
+                            "endLine" : 14,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/TransactionBase.cs"
+                          },
+                          "region" : {
+                            "startLine" : 34,
+                            "startColumn" : 27,
+                            "endColumn" : 30
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: return count;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1510627844"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 87,
+                  "startColumn" : 17,
+                  "endColumn" : 30
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 87,
+                            "startColumn" : 17,
+                            "endColumn" : 30
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 89,
+                            "startColumn" : 13,
+                            "endColumn" : 26
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: DateTime now = DateTime.Now; OutgoingTransfer outgoing = ..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1385740998"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 116,
+                  "startColumn" : 17,
+                  "endLine" : 119,
+                  "endColumn" : 38
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 116,
+                            "startColumn" : 17,
+                            "endLine" : 119,
+                            "endColumn" : 38
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 128,
+                            "startColumn" : 17,
+                            "endLine" : 131,
+                            "endColumn" : 38
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: outgoing.Apply();"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1997690254"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                },
+                "region" : {
+                  "startLine" : 123,
+                  "startColumn" : 17,
+                  "endColumn" : 34
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 123,
+                            "startColumn" : 17,
+                            "endColumn" : 34
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Bank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 133,
+                            "startColumn" : 17,
+                            "endColumn" : 34
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method: '{ return _currencyInfo; }'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1629195772"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 48,
+                  "endColumn" : 73
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                          },
+                          "region" : {
+                            "startLine" : 27,
+                            "startColumn" : 48,
+                            "endColumn" : 73
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                          },
+                          "region" : {
+                            "startLine" : 15,
+                            "startColumn" : 48,
+                            "endColumn" : 73
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method: '{ return _number; }'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "863065907"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                },
+                "region" : {
+                  "startLine" : 31,
+                  "startColumn" : 43,
+                  "endColumn" : 62
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                          },
+                          "region" : {
+                            "startLine" : 31,
+                            "startColumn" : 43,
+                            "endColumn" : 62
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ReportGenerator.cs"
+                          },
+                          "region" : {
+                            "startLine" : 50,
+                            "startColumn" : 43,
+                            "endColumn" : 62
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method 'Transfer' : '{'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1508372603"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                },
+                "region" : {
+                  "startLine" : 39,
+                  "startColumn" : 9,
+                  "endColumn" : 10
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/BankAccount.cs"
+                          },
+                          "region" : {
+                            "startLine" : 39,
+                            "startColumn" : 9,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 12,
+                            "startColumn" : 9,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ReportGenerator.cs"
+                          },
+                          "region" : {
+                            "startLine" : 46,
+                            "startColumn" : 9,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/IncommingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 12,
+                            "startColumn" : 9,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/OutgoingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 13,
+                            "startColumn" : 9,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: { return input; }"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1178724475"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/CurrencyExchangeConverter.cs"
+                },
+                "region" : {
+                  "startLine" : 25,
+                  "startColumn" : 13,
+                  "endLine" : 27,
+                  "endColumn" : 14
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/CurrencyExchangeConverter.cs"
+                          },
+                          "region" : {
+                            "startLine" : 25,
+                            "startColumn" : 13,
+                            "endLine" : 27,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/CurrencyExchangeConverter.cs"
+                          },
+                          "region" : {
+                            "startLine" : 38,
+                            "startColumn" : 13,
+                            "endLine" : 40,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/CurrencyExchangeConverter.cs"
+                          },
+                          "region" : {
+                            "startLine" : 56,
+                            "startColumn" : 13,
+                            "endLine" : 58,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: bank.AddCurrency(new CurrencyInfo(\"USD\", \"$\", \"{1}{0}\"));..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1465239513"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 19,
+                  "startColumn" : 13,
+                  "endLine" : 20,
+                  "endColumn" : 70
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 19,
+                            "startColumn" : 13,
+                            "endLine" : 20,
+                            "endColumn" : 70
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 22,
+                            "startColumn" : 13,
+                            "endLine" : 23,
+                            "endColumn" : 72
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"{1}{0}\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1465239513"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 19,
+                  "startColumn" : 59,
+                  "endColumn" : 67
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 19,
+                            "startColumn" : 59,
+                            "endColumn" : 67
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 20,
+                            "startColumn" : 59,
+                            "endColumn" : 67
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 21,
+                            "startColumn" : 59,
+                            "endColumn" : 67
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"EUR\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-589409115"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 20,
+                  "startColumn" : 47,
+                  "endColumn" : 52
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 20,
+                            "startColumn" : 47,
+                            "endColumn" : 52
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 34,
+                            "startColumn" : 107,
+                            "endColumn" : 112
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 38,
+                            "startColumn" : 109,
+                            "endColumn" : 114
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 43,
+                            "startColumn" : 53,
+                            "endColumn" : 58
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 27,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 44,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"JPY\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1314716915"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 21,
+                  "startColumn" : 47,
+                  "endColumn" : 52
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 21,
+                            "startColumn" : 47,
+                            "endColumn" : 52
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 35,
+                            "startColumn" : 108,
+                            "endColumn" : 113
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 39,
+                            "startColumn" : 108,
+                            "endColumn" : 113
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 44,
+                            "startColumn" : 53,
+                            "endColumn" : 58
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 26,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 43,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"PLN\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "2096213879"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 22,
+                  "startColumn" : 47,
+                  "endColumn" : 52
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 22,
+                            "startColumn" : 47,
+                            "endColumn" : 52
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 46,
+                            "startColumn" : 53,
+                            "endColumn" : 58
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 28,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 45,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"{0} {1}\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "2096213879"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 22,
+                  "startColumn" : 60,
+                  "endColumn" : 69
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 22,
+                            "startColumn" : 60,
+                            "endColumn" : 69
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 23,
+                            "startColumn" : 60,
+                            "endColumn" : 69
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"ISK\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "205029641"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 23,
+                  "startColumn" : 47,
+                  "endColumn" : 52
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 23,
+                            "startColumn" : 47,
+                            "endColumn" : 52
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 36,
+                            "startColumn" : 106,
+                            "endColumn" : 111
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 45,
+                            "startColumn" : 53,
+                            "endColumn" : 58
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 30,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 47,
+                            "startColumn" : 22,
+                            "endColumn" : 27
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"jwhite\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1592347677"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 25,
+                  "startColumn" : 60,
+                  "endColumn" : 68
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 25,
+                            "startColumn" : 60,
+                            "endColumn" : 68
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 25,
+                            "startColumn" : 70,
+                            "endColumn" : 78
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"asmith\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "2039809239"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 62,
+                  "endColumn" : 70
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 26,
+                            "startColumn" : 62,
+                            "endColumn" : 70
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 26,
+                            "startColumn" : 72,
+                            "endColumn" : 80
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"ksuzuki\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1660023329"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 27,
+                  "startColumn" : 62,
+                  "endColumn" : 71
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 27,
+                            "startColumn" : 62,
+                            "endColumn" : 71
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 27,
+                            "startColumn" : 73,
+                            "endColumn" : 82
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: bank.AddAccount(new BankAccount(user1, CurrencyProvider.G..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "785956807"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 33,
+                  "startColumn" : 13,
+                  "endLine" : 34,
+                  "endColumn" : 160
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 33,
+                            "startColumn" : 13,
+                            "endLine" : 34,
+                            "endColumn" : 160
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 35,
+                            "startColumn" : 13,
+                            "endLine" : 36,
+                            "endColumn" : 159
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: bank.Coverter.AddRatio(bank.GetCurrency(\"EUR\"), 0.775f); ..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1640780899"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 43,
+                  "startColumn" : 13,
+                  "endLine" : 44,
+                  "endColumn" : 69
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 43,
+                            "startColumn" : 13,
+                            "endLine" : 44,
+                            "endColumn" : 69
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 45,
+                            "startColumn" : 13,
+                            "endLine" : 46,
+                            "endColumn" : 69
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"1000\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "887140154"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 54,
+                  "startColumn" : 60,
+                  "endColumn" : 66
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 54,
+                            "startColumn" : 60,
+                            "endColumn" : 66
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 58,
+                            "startColumn" : 51,
+                            "endColumn" : 57
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: amount = CurrencyProvider.GetCurrency(\"5000\", user1Accoun..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-166426779"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 62,
+                  "startColumn" : 13,
+                  "endLine" : 64,
+                  "endColumn" : 78
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 62,
+                            "startColumn" : 13,
+                            "endLine" : 64,
+                            "endColumn" : 78
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 66,
+                            "startColumn" : 13,
+                            "endLine" : 68,
+                            "endColumn" : 78
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: amount = CurrencyProvider.GetCurrency(\"250\", user3Account..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-1947653289"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                },
+                "region" : {
+                  "startLine" : 70,
+                  "startColumn" : 13,
+                  "endLine" : 72,
+                  "endColumn" : 78
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 70,
+                            "startColumn" : 13,
+                            "endLine" : 72,
+                            "endColumn" : 78
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/ExampleBank.cs"
+                          },
+                          "region" : {
+                            "startLine" : 74,
+                            "startColumn" : 13,
+                            "endLine" : 76,
+                            "endColumn" : 78
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: { throw new NotSupportedException(\"Cannot add different c..."
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1178724475"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 13,
+                  "endLine" : 31,
+                  "endColumn" : 14
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                          },
+                          "region" : {
+                            "startLine" : 29,
+                            "startColumn" : 13,
+                            "endLine" : 31,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                          },
+                          "region" : {
+                            "startLine" : 41,
+                            "startColumn" : 13,
+                            "endLine" : 43,
+                            "endColumn" : 14
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPS",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated string: \"Cannot add different currencies\""
+          },
+          "partialFingerprints" : {
+            "lineHash" : "666262518"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                },
+                "region" : {
+                  "startLine" : 30,
+                  "startColumn" : 49,
+                  "endColumn" : 82
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                          },
+                          "region" : {
+                            "startLine" : 30,
+                            "startColumn" : 49,
+                            "endColumn" : 82
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/Currency.cs"
+                          },
+                          "region" : {
+                            "startLine" : 42,
+                            "startColumn" : 49,
+                            "endColumn" : 82
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: return null;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-822824796"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                },
+                "region" : {
+                  "startLine" : 35,
+                  "startColumn" : 13,
+                  "endColumn" : 25
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 35,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyProvider.cs"
+                          },
+                          "region" : {
+                            "startLine" : 50,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 37,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/OutgoingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 34,
+                            "startColumn" : 13,
+                            "endColumn" : 25
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: CurrencyWithCents c = (CurrencyWithCents) currency;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "-125582021"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithCents.cs"
+                },
+                "region" : {
+                  "startLine" : 51,
+                  "startColumn" : 13,
+                  "endColumn" : 64
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithCents.cs"
+                          },
+                          "region" : {
+                            "startLine" : 51,
+                            "startColumn" : 13,
+                            "endColumn" : 64
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithCents.cs"
+                          },
+                          "region" : {
+                            "startLine" : 57,
+                            "startColumn" : 13,
+                            "endColumn" : 63
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: CurrencyWithNoCents c = (CurrencyWithNoCents) currency;"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1140434267"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithNoCents.cs"
+                },
+                "region" : {
+                  "startLine" : 32,
+                  "startColumn" : 13,
+                  "endColumn" : 68
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithNoCents.cs"
+                          },
+                          "region" : {
+                            "startLine" : 32,
+                            "startColumn" : 13,
+                            "endColumn" : 68
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Money/CurrencyWithNoCents.cs"
+                          },
+                          "region" : {
+                            "startLine" : 38,
+                            "startColumn" : 13,
+                            "endColumn" : 67
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method 'CheckBalance' : '{ \/\/ TODO: check the balance before transfering money out...'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1508372603"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                },
+                "region" : {
+                  "startLine" : 18,
+                  "startColumn" : 9,
+                  "endLine" : 21,
+                  "endColumn" : 10
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 18,
+                            "startColumn" : 9,
+                            "endLine" : 21,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/IncommingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 17,
+                            "startColumn" : 9,
+                            "endLine" : 19,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method 'GetKind' : '{ return \"External Transfer\"; }'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1508372603"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                },
+                "region" : {
+                  "startLine" : 24,
+                  "startColumn" : 9,
+                  "endLine" : 26,
+                  "endColumn" : 10
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 24,
+                            "startColumn" : 9,
+                            "endLine" : 26,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/IncommingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 22,
+                            "startColumn" : 9,
+                            "endLine" : 24,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/OutgoingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 23,
+                            "startColumn" : 9,
+                            "endLine" : 25,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPC",
+          "level" : "warning",
+          "message" : {
+            "text" : "Duplicated code: return \"External Transfer\";"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "2057910919"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                },
+                "region" : {
+                  "startLine" : 25,
+                  "startColumn" : 13,
+                  "endColumn" : 40
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 25,
+                            "startColumn" : 13,
+                            "endColumn" : 40
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/IncommingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 23,
+                            "startColumn" : 13,
+                            "endColumn" : 41
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/OutgoingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 24,
+                            "startColumn" : 13,
+                            "endColumn" : 40
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId" : "CDD.DUPM",
+          "level" : "error",
+          "message" : {
+            "text" : "Duplicated implementation of method 'GetConvertedAmount' : '{ return null; }'"
+          },
+          "partialFingerprints" : {
+            "lineHash" : "1508372603"
+          },
+          "locations" : [
+            {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                },
+                "region" : {
+                  "startLine" : 36,
+                  "startColumn" : 9,
+                  "endLine" : 38,
+                  "endColumn" : 10
+                }
+              }
+            }
+          ],
+          "codeFlows" : [
+            {
+              "threadFlows" : [
+                {
+                  "locations" : [
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/ExternalTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 36,
+                            "startColumn" : 9,
+                            "endLine" : 38,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    },
+                    {
+                      "location" : {
+                        "physicalLocation" : {
+                          "artifactLocation" : {
+                            "uri" : "file:/D:/reports/projects/bankexample.net/Parasoft.Dottest.Examples.Bank/Transactions/OutgoingTransfer.cs"
+                          },
+                          "region" : {
+                            "startLine" : 33,
+                            "startColumn" : 9,
+                            "endLine" : 35,
+                            "endColumn" : 10
+                          }
+                        },
+                        "message" : {
+                          "text" : "Review duplicate in"
+                        }
+                      },
+                      "nestingLevel" : 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
