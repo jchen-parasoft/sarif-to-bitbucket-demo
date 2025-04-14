@@ -126,12 +126,13 @@ const sarifToBitBucket = async () => {
     let vulns = scanType.mapper(sarifResult)
     let details = `This repository contains ${scanType['count']} ${scanType['name']} vulnerabilities`
 
+    // Set the limit to show first 100 vulnerabilities
     if (vulns.length > 100) {
         vulns = vulns.slice(0, 100)
         details = `${details} (first 100 vulnerabilities shown)`
     }
 
-    // 1. Delete Existing Report
+    // Delete Existing Report
     await axios.delete(`${BB_API_URL}/${WORKSPACE}/${REPO}/commit/${COMMIT}/reports/${scanType['id']}`,
         {
             auth: {
@@ -141,7 +142,7 @@ const sarifToBitBucket = async () => {
         }
     )
 
-    // 2. Create Report
+    // Create Report
     await axios.put(
         `${BB_API_URL}/${WORKSPACE}/${REPO}/commit/${COMMIT}/reports/${scanType['id']}`,
         {
@@ -159,7 +160,7 @@ const sarifToBitBucket = async () => {
         }
     )
 
-    // 3. Upload Annotations (Vulnerabilities)
+    // Upload Annotations (Vulnerabilities)
     await axios.post(`${BB_API_URL}/${WORKSPACE}/${REPO}/commit/${COMMIT}/reports/${scanType['id']}/annotations`,
         vulns,
         {
