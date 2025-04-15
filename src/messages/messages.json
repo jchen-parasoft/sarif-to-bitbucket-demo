@@ -1,0 +1,6 @@
+{
+  "run_failed": "Failed to parse the SARIF report",
+  "converting_static_analysis_report_to_sarif": "Converting Parasoft static analysis report {0} to a Sarif report...",
+  "converted_sarif_report": "Sarif report generated successfully: {0}",
+  "exit_code": "The SARIF report parsing finished with code {0}"
+}
