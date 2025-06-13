@@ -8,7 +8,6 @@
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paramsAreValid = paramsAreValid;
-exports.getInput = getInput;
 function paramsAreValid(runOptions) {
     if (runOptions.BB_USER == null) {
         console.log('Error: specify user');
@@ -36,20 +35,6 @@ function paramsAreValid(runOptions) {
     }
     return true;
 }
-async function getInput() {
-    return new Promise((resolve, reject) => {
-        const stdin = process.stdin;
-        let data = '';
-        stdin.setEncoding('utf8');
-        stdin.on('data', function (chunk) {
-            data += chunk;
-        });
-        stdin.on('end', function () {
-            resolve(data);
-        });
-        stdin.on('error', reject);
-    });
-}
 //# sourceMappingURL=common.js.map
 
 /***/ }),
@@ -67,7 +52,6 @@ const messages_1 = __nccwpck_require__(6250);
 class convertReport {
     async convertReportsWithJava(workspace, sourcePaths) {
         const javaPath = process.env.JAVA_HOME;
-        // console.debug(messages.using_java_to_convert_report);
         const jarPath = pt.join(__dirname, "SaxonHE12-2J/saxon-he-12.2.jar");
         const xslPath = pt.join(__dirname, "sarif.xsl");
         const sarifReports = [];
@@ -171,12 +155,12 @@ class SarifParserRunner {
                 password: runOptions.BB_APP_PASSWORD
             }
         });
-        // Create Report
+        // Create Report module
         await axios_1.default.put(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
             title: scanType['title'],
             details: details,
             report_type: "SECURITY",
-            reporter: "sarif-to-bitbucket",
+            reporter: "sarif-to-bitbucket-demo",
             result: "PASSED"
         }, {
             auth: {
@@ -10825,7 +10809,7 @@ async function run() {
     try {
         const argv = minimist(process.argv.slice(2));
         const runOptions = {
-            BB_USER: argv['user'],
+            BB_USER: argv['username'],
             BB_APP_PASSWORD: argv['password'],
             REPO: argv['repo'],
             COMMIT: argv['commit'],
