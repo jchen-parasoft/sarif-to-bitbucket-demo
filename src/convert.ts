@@ -8,7 +8,6 @@ export interface RunDetails {
 }
 export class convertReport {
     async convertReportsWithJava(workspace: string, sourcePaths: string[]): Promise<RunDetails> {
-        const javaPath = process.env.JAVA_HOME
         const jarPath = pt.join(__dirname, "SaxonHE12-2J/saxon-he-12.2.jar");
         const xslPath = pt.join(__dirname, "sarif.xsl");
         const sarifReports: string[] = [];
@@ -17,7 +16,7 @@ export class convertReport {
             console.info(messagesFormatter.format(messages.converting_static_analysis_report_to_sarif, sourcePath));
             const outPath = sourcePath.substring(0, sourcePath.toLocaleLowerCase().lastIndexOf('.xml')) + '.sarif';
 
-            const commandLine = `"${javaPath}/bin/java" -jar "${jarPath}" -s:"${sourcePath}" -xsl:"${xslPath}" -o:"${outPath}" -versionmsg:off pipelineBuildWorkingDirectory="${workspace}"`;
+            const commandLine = `java -jar "${jarPath}" -s:"${sourcePath}" -xsl:"${xslPath}" -o:"${outPath}" -versionmsg:off pipelineBuildWorkingDirectory="${workspace}"`;
             console.info(commandLine);
             const result = await new Promise<RunDetails>((resolve, reject) => {
                 const process = cp.spawn(`${commandLine}`, {shell: true, windowsHide: true });

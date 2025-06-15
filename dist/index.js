@@ -7,33 +7,39 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.paramsAreValid = paramsAreValid;
-function paramsAreValid(runOptions) {
-    if (runOptions.BB_USER == null) {
-        console.log('Error: specify user');
-        return false;
+exports.initRunOptions = initRunOptions;
+function initRunOptions(reportPath) {
+    const BB_USER = process.env.BB_USER;
+    const BB_APP_PASSWORD = process.env.BB_APP_PASSWORD;
+    const REPO = process.env.BITBUCKET_REPO_SLUG;
+    const COMMIT = process.env.BITBUCKET_COMMIT;
+    const WORKSPACE = process.env.BITBUCKET_WORKSPACE;
+    if (BB_USER == undefined) {
+        throw Error('Error: BitBucket username is undefined');
     }
-    if (runOptions.BB_APP_PASSWORD == null) {
-        console.log('Error: specify password');
-        return false;
+    if (BB_APP_PASSWORD == undefined) {
+        throw Error('Error: BitBucket App password is undefined');
     }
-    if (runOptions.REPO == null) {
-        console.log('Error: specify repo');
-        return false;
+    if (REPO == undefined) {
+        throw Error('Error: BitBucket repository is undefined');
     }
-    if (runOptions.COMMIT == null) {
-        console.log('Error: specify commit');
-        return false;
+    if (COMMIT == undefined) {
+        throw Error('Error: BitBucket commit is undefined');
     }
-    if (runOptions.WORKSPACE == null) {
-        console.log('Error: specify workspace');
-        return false;
+    if (WORKSPACE == undefined) {
+        throw Error('Error: BitBucket workspace is undefined');
     }
-    if (runOptions.REPORT == null) {
-        console.log('Error: specify report');
-        return false;
+    if (reportPath == null) {
+        throw Error('Error: specify report');
     }
-    return true;
+    return {
+        BB_USER: BB_USER,
+        BB_APP_PASSWORD: BB_APP_PASSWORD,
+        REPO: REPO,
+        COMMIT: COMMIT,
+        WORKSPACE: WORKSPACE,
+        REPORT: reportPath
+    };
 }
 //# sourceMappingURL=common.js.map
 
@@ -51,14 +57,13 @@ const pt = __nccwpck_require__(6928);
 const messages_1 = __nccwpck_require__(6250);
 class convertReport {
     async convertReportsWithJava(workspace, sourcePaths) {
-        const javaPath = process.env.JAVA_HOME;
         const jarPath = pt.join(__dirname, "SaxonHE12-2J/saxon-he-12.2.jar");
         const xslPath = pt.join(__dirname, "sarif.xsl");
         const sarifReports = [];
         for (const sourcePath of sourcePaths) {
             console.info(messages_1.messagesFormatter.format(messages_1.messages.converting_static_analysis_report_to_sarif, sourcePath));
             const outPath = sourcePath.substring(0, sourcePath.toLocaleLowerCase().lastIndexOf('.xml')) + '.sarif';
-            const commandLine = `"${javaPath}/bin/java" -jar "${jarPath}" -s:"${sourcePath}" -xsl:"${xslPath}" -o:"${outPath}" -versionmsg:off pipelineBuildWorkingDirectory="${workspace}"`;
+            const commandLine = `java -jar "${jarPath}" -s:"${sourcePath}" -xsl:"${xslPath}" -o:"${outPath}" -versionmsg:off pipelineBuildWorkingDirectory="${workspace}"`;
             console.info(commandLine);
             const result = await new Promise((resolve, reject) => {
                 const process = cp.spawn(`${commandLine}`, { shell: true, windowsHide: true });
@@ -148,14 +153,26 @@ class SarifParserRunner {
             vulnerabilities = vulnerabilities.slice(0, 100);
             details = `${details} (first 100 vulnerabilities shown)`;
         }
-        // Delete Existing Report
-        await axios_1.default.delete(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
+        const reportResponse = await axios_1.default.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
             auth: {
                 username: runOptions.BB_USER,
                 password: runOptions.BB_APP_PASSWORD
             }
         });
+        console.info(reportResponse.data);
+        console.info(reportResponse.data.title);
+        if (reportResponse.data && reportResponse.data.title === scanType['id']) {
+            console.info("Delete old report module");
+            // Delete Existing Report
+            await axios_1.default.delete(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
+                auth: {
+                    username: runOptions.BB_USER,
+                    password: runOptions.BB_APP_PASSWORD
+                }
+            });
+        }
         // Create Report module
+        console.info("Create new report module...");
         await axios_1.default.put(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
             title: scanType['title'],
             details: details,
@@ -169,6 +186,7 @@ class SarifParserRunner {
             }
         });
         // Upload Annotations (Vulnerabilities)
+        console.info("Upload vulnerabilities...");
         await axios_1.default.post(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}/annotations`, vulnerabilities, {
             auth: {
                 username: runOptions.BB_USER,
@@ -10808,22 +10826,13 @@ const messages_1 = __nccwpck_require__(6250);
 async function run() {
     try {
         const argv = minimist(process.argv.slice(2));
-        const runOptions = {
-            BB_USER: argv['username'],
-            BB_APP_PASSWORD: argv['password'],
-            REPO: argv['repo'],
-            COMMIT: argv['commit'],
-            WORKSPACE: argv['workspace'],
-            REPORT: argv['report']
-        };
-        if ((0, common_1.paramsAreValid)(runOptions)) {
-            const theRunner = new runner.SarifParserRunner();
-            const convertReport = new convert.convertReport();
-            const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
-            const convertedReports = result.convertedCoberturaReportPaths;
-            if (convertedReports) {
-                await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);
-            }
+        const runOptions = (0, common_1.initRunOptions)(argv['report']);
+        const theRunner = new runner.SarifParserRunner();
+        const convertReport = new convert.convertReport();
+        const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
+        const convertedReports = result.convertedCoberturaReportPaths;
+        if (convertedReports) {
+            await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);
         }
     }
     catch (error) {
