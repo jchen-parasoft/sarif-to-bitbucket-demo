@@ -7,33 +7,39 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.paramsAreValid = paramsAreValid;
-function paramsAreValid(runOptions) {
-    if (runOptions.BB_USER == null) {
-        console.log('Error: specify user');
-        return false;
+exports.initRunOptions = initRunOptions;
+function initRunOptions(reportPath) {
+    const BB_USER = process.env.BB_USER;
+    const BB_APP_PASSWORD = process.env.BB_APP_PASSWORD;
+    const REPO = process.env.BITBUCKET_REPO_SLUG;
+    const COMMIT = process.env.BITBUCKET_COMMIT;
+    const WORKSPACE = process.env.BITBUCKET_WORKSPACE;
+    if (BB_USER == undefined) {
+        throw Error('Error: BitBucket username is undefined');
     }
-    if (runOptions.BB_APP_PASSWORD == null) {
-        console.log('Error: specify password');
-        return false;
+    if (BB_APP_PASSWORD == undefined) {
+        throw Error('Error: BitBucket App password is undefined');
     }
-    if (runOptions.REPO == null) {
-        console.log('Error: specify repo');
-        return false;
+    if (REPO == undefined) {
+        throw Error('Error: BitBucket repository is undefined');
     }
-    if (runOptions.COMMIT == null) {
-        console.log('Error: specify commit');
-        return false;
+    if (COMMIT == undefined) {
+        throw Error('Error: BitBucket commit is undefined');
     }
-    if (runOptions.WORKSPACE == null) {
-        console.log('Error: specify workspace');
-        return false;
+    if (WORKSPACE == undefined) {
+        throw Error('Error: BitBucket workspace is undefined');
     }
-    if (runOptions.REPORT == null) {
-        console.log('Error: specify report');
-        return false;
+    if (reportPath == null) {
+        throw Error('Error: specify report');
     }
-    return true;
+    return {
+        BB_USER: BB_USER,
+        BB_APP_PASSWORD: BB_APP_PASSWORD,
+        REPO: REPO,
+        COMMIT: COMMIT,
+        WORKSPACE: WORKSPACE,
+        REPORT: reportPath
+    };
 }
 //# sourceMappingURL=common.js.map
 
@@ -10808,22 +10814,13 @@ const messages_1 = __nccwpck_require__(6250);
 async function run() {
     try {
         const argv = minimist(process.argv.slice(2));
-        const runOptions = {
-            BB_USER: argv['username'],
-            BB_APP_PASSWORD: argv['password'],
-            REPO: argv['repo'],
-            COMMIT: argv['commit'],
-            WORKSPACE: argv['workspace'],
-            REPORT: argv['report']
-        };
-        if ((0, common_1.paramsAreValid)(runOptions)) {
-            const theRunner = new runner.SarifParserRunner();
-            const convertReport = new convert.convertReport();
-            const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
-            const convertedReports = result.convertedCoberturaReportPaths;
-            if (convertedReports) {
-                await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);
-            }
+        const runOptions = (0, common_1.initRunOptions)(argv['report']);
+        const theRunner = new runner.SarifParserRunner();
+        const convertReport = new convert.convertReport();
+        const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
+        const convertedReports = result.convertedCoberturaReportPaths;
+        if (convertedReports) {
+            await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);
         }
     }
     catch (error) {

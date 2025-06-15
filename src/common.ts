@@ -1,35 +1,42 @@
 import {RunOptions} from "./options";
 
-export function paramsAreValid(runOptions: RunOptions): Boolean {
-    if (runOptions.BB_USER == null) {
-        console.log('Error: specify user')
-        return false
+export function initRunOptions(reportPath: string): RunOptions {
+    const BB_USER = process.env.BB_USER;
+    const BB_APP_PASSWORD= process.env.BB_APP_PASSWORD;
+    const REPO= process.env.BITBUCKET_REPO_SLUG;
+    const COMMIT= process.env.BITBUCKET_COMMIT;
+    const WORKSPACE= process.env.BITBUCKET_WORKSPACE;
+
+    if (BB_USER == undefined) {
+        throw Error('Error: BitBucket username is undefined')
     }
 
-    if (runOptions.BB_APP_PASSWORD == null) {
-        console.log('Error: specify password')
-        return false
+    if (BB_APP_PASSWORD == undefined) {
+        throw Error('Error: BitBucket App password is undefined')
     }
 
-    if (runOptions.REPO == null) {
-        console.log('Error: specify repo')
-        return false
+    if (REPO == undefined) {
+        throw Error('Error: BitBucket repository is undefined')
     }
 
-    if (runOptions.COMMIT == null) {
-        console.log('Error: specify commit')
-        return false
+    if (COMMIT == undefined) {
+        throw Error('Error: BitBucket commit is undefined')
     }
 
-    if (runOptions.WORKSPACE == null) {
-        console.log('Error: specify workspace')
-        return false
+    if (WORKSPACE == undefined) {
+        throw Error('Error: BitBucket workspace is undefined')
     }
 
-    if (runOptions.REPORT == null) {
-        console.log('Error: specify report')
-        return false
+    if (reportPath == null) {
+        throw Error('Error: specify report')
     }
 
-    return true
+    return {
+        BB_USER: BB_USER,
+        BB_APP_PASSWORD: BB_APP_PASSWORD,
+        REPO: REPO,
+        COMMIT: COMMIT,
+        WORKSPACE: WORKSPACE,
+        REPORT: reportPath
+    }
 }
