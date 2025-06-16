@@ -26,7 +26,8 @@ export class SarifParserRunner {
 
         let reportResponse: any;
         try {
-            reportResponse = await axios.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
+            reportResponse = await axios.get(
+                `${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
                 {
                     auth: {
                         username: runOptions.BB_USER,
@@ -42,7 +43,8 @@ export class SarifParserRunner {
         if (reportResponse !== "") {
             console.info("Delete old report module")
             // Delete Existing Report
-            await axios.delete(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
+            await axios.delete(
+                `${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
                 {
                     auth: {
                         username: runOptions.BB_USER,
@@ -73,7 +75,8 @@ export class SarifParserRunner {
 
         // Upload Annotations (Vulnerabilities)
         console.info("Upload vulnerabilities...")
-        await axios.post(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}/annotations`,
+        await axios.post(
+            `${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}/annotations`,
             vulnerabilities,
             {
                 auth: {
