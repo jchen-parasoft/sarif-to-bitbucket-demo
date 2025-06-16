@@ -1,12 +1,12 @@
 import * as fs from "fs";
-import axios from "axios";
-import { v4 as uuidv4 } from 'uuid'
+import axios, { AxiosResponse } from "axios";
+import {v4 as uuidv4} from 'uuid'
 import {RunOptions} from "./options";
 
 const BB_API_URL = 'https://api.bitbucket.org/2.0/repositories'
 
 export class SarifParserRunner {
-    async sarifToBitBucket(runOptions: RunOptions, convertedReport: string) : Promise<void> {
+    async sarifToBitBucket(runOptions: RunOptions, convertedReport: string): Promise<void> {
         const sarifReportContent = fs.readFileSync(convertedReport, 'utf8');
         const sarifResult = JSON.parse(sarifReportContent);
         const scanType = this.getScanType(sarifResult);
@@ -24,19 +24,22 @@ export class SarifParserRunner {
             details = `${details} (first 100 vulnerabilities shown)`;
         }
 
-        const reportResponse = await axios.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
-            {
-                auth: {
-                    username: runOptions.BB_USER,
-                    password: runOptions.BB_APP_PASSWORD
+        let reportResponse: any;
+        try {
+            reportResponse = await axios.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
+                {
+                    auth: {
+                        username: runOptions.BB_USER,
+                        password: runOptions.BB_APP_PASSWORD
+                    }
                 }
-            }
-        );
+            );
+        } catch (error) {
+            console.info("Report is not exist in this commit")
+            reportResponse = "";
+        }
 
-        console.info(reportResponse.data);
-        console.info(reportResponse.data.title);
-
-        if (reportResponse.data && reportResponse.data.title === scanType['id']) {
+        if (reportResponse !== "") {
             console.info("Delete old report module")
             // Delete Existing Report
             await axios.delete(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
