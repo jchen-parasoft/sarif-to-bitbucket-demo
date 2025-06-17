@@ -56,15 +56,16 @@ const cp = __nccwpck_require__(5317);
 const pt = __nccwpck_require__(6928);
 const messages_1 = __nccwpck_require__(6250);
 class convertReport {
-    async convertReportsWithJava(workspace, sourcePaths) {
+    async convertReportsWithJava(sourcePaths) {
         const jarPath = pt.join(__dirname, "SaxonHE12-2J/saxon-he-12.2.jar");
         const xslPath = pt.join(__dirname, "sarif.xsl");
         const sarifReports = [];
+        const workspace = pt.join(__dirname, '..', '..');
         for (const sourcePath of sourcePaths) {
-            console.info(messages_1.messagesFormatter.format(messages_1.messages.converting_static_analysis_report_to_sarif, sourcePath));
+            console.log(messages_1.messagesFormatter.format(messages_1.messages.converting_static_analysis_report_to_sarif, sourcePath));
             const outPath = sourcePath.substring(0, sourcePath.toLocaleLowerCase().lastIndexOf('.xml')) + '.sarif';
             const commandLine = `java -jar "${jarPath}" -s:"${sourcePath}" -xsl:"${xslPath}" -o:"${outPath}" -versionmsg:off pipelineBuildWorkingDirectory="${workspace}"`;
-            console.info(commandLine);
+            console.log(commandLine);
             const result = await new Promise((resolve, reject) => {
                 const process = cp.spawn(`${commandLine}`, { shell: true, windowsHide: true });
                 this.handleProcess(process, resolve, reject);
@@ -73,7 +74,7 @@ class convertReport {
                 return { exitCode: result.exitCode };
             }
             sarifReports.push(outPath);
-            console.info(messages_1.messagesFormatter.format(messages_1.messages.converted_sarif_report, outPath));
+            console.log(messages_1.messagesFormatter.format(messages_1.messages.converted_sarif_report, outPath));
         }
         return { exitCode: 0, convertedCoberturaReportPaths: sarifReports };
     }
@@ -142,6 +143,7 @@ class SarifParserRunner {
     async sarifToBitBucket(runOptions, convertedReport) {
         const sarifReportContent = fs.readFileSync(convertedReport, 'utf8');
         const sarifResult = JSON.parse(sarifReportContent);
+        console.info(sarifResult);
         const scanType = this.getScanType(sarifResult);
         if (scanType['id'] === "c/c++test") {
             scanType['id'] = "c++test";
@@ -155,7 +157,7 @@ class SarifParserRunner {
         }
         let reportResponse;
         try {
-            reportResponse = await axios_1.default.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
+            reportResponse = await axios_1.default.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports`, {
                 auth: {
                     username: runOptions.BB_USER,
                     password: runOptions.BB_APP_PASSWORD
@@ -182,7 +184,7 @@ class SarifParserRunner {
             title: scanType['title'],
             details: details,
             report_type: "SECURITY",
-            reporter: "sarif-to-bitbucket-demo",
+            reporter: runOptions.BB_USER,
             result: "PASSED"
         }, {
             auth: {
@@ -10834,7 +10836,7 @@ async function run() {
         const runOptions = (0, common_1.initRunOptions)(argv['report']);
         const theRunner = new runner.SarifParserRunner();
         const convertReport = new convert.convertReport();
-        const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
+        const result = await convertReport.convertReportsWithJava([runOptions.REPORT]);
         const convertedReports = result.convertedCoberturaReportPaths;
         if (convertedReports) {
             await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);

@@ -12,7 +12,7 @@ export async function run(): Promise<void> {
 
         const theRunner = new runner.SarifParserRunner();
         const convertReport = new convert.convertReport();
-        const result = await convertReport.convertReportsWithJava(runOptions.WORKSPACE, [runOptions.REPORT]);
+        const result = await convertReport.convertReportsWithJava([runOptions.REPORT]);
         const convertedReports = result.convertedCoberturaReportPaths;
         if(convertedReports) {
             await theRunner.sarifToBitBucket(runOptions, convertedReports[0]);

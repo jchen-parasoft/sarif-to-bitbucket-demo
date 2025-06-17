@@ -4,7 +4,11 @@
   "private": true,
   "description": "Upload SARIF format report to BitBucket Cloud.",
   "main": "lib/main.js",
+  "bin": {
+    "sarif-to-bb": "node dist/index.js"
+  },
   "scripts": {
+    "main": "node dist/index.js",
     "compile": "npx tsc -p ./",
     "lint": "npx eslint . --ext .ts -f checkstyle -o eslint/eslint-report.xml || true",
     "copy-files": "copyfiles --flat ./src/messages/*.json ./dist/messages && copyfiles --flat ./res/*.xsl ./dist && copyfiles --up 1 ./libs/SaxonHE12-2J/**/* ./dist",
