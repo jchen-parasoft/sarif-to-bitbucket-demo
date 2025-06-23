@@ -155,29 +155,6 @@ class SarifParserRunner {
             vulnerabilities = vulnerabilities.slice(0, 100);
             details = `${details} (first 100 vulnerabilities shown)`;
         }
-        let reportResponse;
-        try {
-            reportResponse = await axios_1.default.get(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports`, {
-                auth: {
-                    username: runOptions.BB_USER,
-                    password: runOptions.BB_APP_PASSWORD
-                }
-            });
-        }
-        catch (error) {
-            console.info("Report is not exist in this commit");
-            reportResponse = "";
-        }
-        if (reportResponse !== "") {
-            console.info("Delete old report module");
-            // Delete Existing Report
-            await axios_1.default.delete(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
-                auth: {
-                    username: runOptions.BB_USER,
-                    password: runOptions.BB_APP_PASSWORD
-                }
-            });
-        }
         // Create Report module
         console.info("Create new report module...");
         await axios_1.default.put(`${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`, {
