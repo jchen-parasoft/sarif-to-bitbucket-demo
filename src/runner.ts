@@ -9,6 +9,9 @@ export class SarifParserRunner {
     async sarifToBitBucket(runOptions: RunOptions, convertedReport: string): Promise<void> {
         const sarifReportContent = fs.readFileSync(convertedReport, 'utf8');
         const sarifResult = JSON.parse(sarifReportContent);
+
+        console.info(sarifResult)
+
         const scanType = this.getScanType(sarifResult);
 
         if (scanType['id'] === "c/c++test") {
@@ -24,36 +27,6 @@ export class SarifParserRunner {
             details = `${details} (first 100 vulnerabilities shown)`;
         }
 
-        let reportResponse: any;
-        try {
-            reportResponse = await axios.get(
-                `${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
-                {
-                    auth: {
-                        username: runOptions.BB_USER,
-                        password: runOptions.BB_APP_PASSWORD
-                    }
-                }
-            );
-        } catch (error) {
-            console.info("Report is not exist in this commit")
-            reportResponse = "";
-        }
-
-        if (reportResponse !== "") {
-            console.info("Delete old report module")
-            // Delete Existing Report
-            await axios.delete(
-                `${BB_API_URL}/${runOptions.WORKSPACE}/${runOptions.REPO}/commit/${runOptions.COMMIT}/reports/${scanType['id']}`,
-                {
-                    auth: {
-                        username: runOptions.BB_USER,
-                        password: runOptions.BB_APP_PASSWORD
-                    }
-                }
-            );
-        }
-
         // Create Report module
         console.info("Create new report module...")
         await axios.put(
@@ -62,7 +35,7 @@ export class SarifParserRunner {
                 title: scanType['title'],
                 details: details,
                 report_type: "SECURITY",
-                reporter: "sarif-to-bitbucket-demo",
+                reporter: runOptions.BB_USER,
                 result: "PASSED"
             },
             {
