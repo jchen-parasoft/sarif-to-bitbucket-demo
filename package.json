@@ -2,11 +2,12 @@
   "name": "sarif-to-bb-demo",
   "version": "1.0.0",
   "description": "Upload SARIF format report to BitBucket Cloud.",
+  "private": true,
   "main": "lib/main.js",
   "bin": {
     "sarif-to-bb": "./dist/index.js"
   },
-  "files": ["dist/*"],
+  "files": ["dist"],
   "preferGlobal": true,
   "scripts": {
     "main": "node ./dist/index.js",
