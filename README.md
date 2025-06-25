@@ -15,10 +15,8 @@ pipelines:
       - step:
           name: "Use sarif-to-bitbucket-demo to upload sarif report to Bitbuckets"
           script:
-            - git clone https://github.com/jchen-parasoft/sarif-to-bitbucket-demo.git
-            - cd sarif-to-bitbucket-demo
-            - npm install
-            - node dist/index.js --report "example_reports/jtest-example.sarif"
+            - npm i -g github:jchen-parasoft/sarif-to-bitbucket-demo
+            - sarif-to-bb --report "path/to/report"
 ```
 
 ## Parameters
